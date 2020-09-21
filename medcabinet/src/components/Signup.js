@@ -1,5 +1,5 @@
 import React from 'react'
-import useForm from "react-hook-form"
+import {useForm} from "react-hook-form"
 
 export default function Signup(){
     const {register, handleSubmit, errors} = useForm();
