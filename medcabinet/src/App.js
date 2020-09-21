@@ -7,7 +7,7 @@ import Login from './components/Login'
 import StrainList from './components/StrainList'
 import SavedList from './components/SavedList'
 
-export default function App(props) {
+export default function App() {
   return (
     <div className="App">
       <nav>
