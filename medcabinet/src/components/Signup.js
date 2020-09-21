@@ -20,6 +20,7 @@ export default function Signup(){
             ref={register({required: "Password required", minLength: 8})}
             />
         {errors.password && <p>{errors.password.message}</p>}
+        <input type="submit" />
         </form>
     )
 }
