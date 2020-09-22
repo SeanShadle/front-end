@@ -15,6 +15,12 @@ const StrainList = () => {
     const [filter, setFilter] = useState(initialFilter)
     const [data, setData] = useState(strainData.map((strain) => ({ ...strain, newid: uuidv4() })));
 
+    let history = useHistory();
+    function routeToItem(ev, item) {
+        ev.preventDefault();
+        history.push(`/StrainList/${item.id}`);
+    }
+
     // const convert = straindata.map((strain) => ({ ...strain, newid: uuidv4() }));
     
     const onChange = (e) => {
@@ -55,11 +61,11 @@ const StrainList = () => {
                 {data
                 .filter((item)=>item.strain_name.toLowerCase().includes(makeLowerCase(search.search)))
                 .map((item)=>(
-                    <div key={item.id} item={item}>
+                    <div key={item.id} item={item}  onClick={ev => routeToItem(ev, item)}>
                         <img className="item-list-image" src={item.img} alt={item.strain_name} />
                         <h4>{item.strain_name}</h4>
                         <h4>{item.type}</h4>
-                        <p>{item.description}</p>
+                        
                     </div>
                     
                 ))}

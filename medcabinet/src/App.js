@@ -1,11 +1,18 @@
 import React from 'react';
-import './App.css';
+
 import {Route, Link, Switch} from 'react-router-dom'
+
 import Home from './components/Home'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import StrainList from './components/StrainList'
+import Strain from './components/Strain'
 import SavedList from './components/SavedList'
+import PrivateRoute from './components/PrivateRoute'
+
+
+import './App.css';
+
 
 export default function App() {
   return (
@@ -27,10 +34,14 @@ export default function App() {
           <Login />
         </Route>
         <Route path='/StrainList'>
-          <StrainList />
+          <StrainList />  {/* Once API is implemented -> <PrivateRoute component={StrainList}/>  */}   
         </Route>
+        <Route path="/StrainList/:id">
+          <Strain  />
+        </Route>
+
         <Route path='/SavedList'>
-          <SavedList />
+          <SavedList />  {/* Once API is implemented -> <PrivateRoute component={SavedList}/>  */}
         </Route>
         <Route path='/'>
           <Home />
