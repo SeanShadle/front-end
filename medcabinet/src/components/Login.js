@@ -52,10 +52,6 @@ const StyledInput = styled.input`
     margin-bottom: 1vh;
     border-radius: 5px;
 `
-const StyledP = styled.p`
-    width: 20vw;
-    text-align: center;
-`
 
 const StyledSubmit = styled.input`
     width: 10vw;
