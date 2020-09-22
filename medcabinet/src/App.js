@@ -8,11 +8,9 @@ import Login from './components/Login'
 import StrainList from './components/StrainList'
 import Strain from './components/Strain'
 import SavedList from './components/SavedList'
-<<<<<<< HEAD
 import PrivateRoute from './components/PrivateRoute'
-=======
+
 import StrainForm from './components/StrainForm'
->>>>>>> 353a7bce0a335e4b1ee092483ff26e9660a8d8be
 
 
 import './App.css';
