@@ -23,7 +23,7 @@ const strainData = [
       strain_name: "Alpha OG",
       img: "https://images.hytiva.com/Alpha-Og.jpg?mw420-mh420",
       rating: 3,
-      type: "hybrid",
+      type: "sativa",
       description:
         "Alpha OG from Alpha Medic is an OG Kush phenotype that took 2nd place in the 2014 Los Angeles Cannabis Cup. Its thick layer of crystal trichomes helps to explain why this pungent, pine-scented strain consistently tests over 20% THC when grown optimally. Conditions best treated with high-THC strains like Alpha OG include sleep apnea, appetite and weight loss, nausea, and chronic pain. "
     },
@@ -41,7 +41,7 @@ const strainData = [
       strain_name: "Angel OG",
       img: "https://images.hytiva.com/Hells-Angel-Og.jpg?mw420-mh420",
       rating: 3,
-      type: "indica",
+      type: "hybrid",
       description:
         "Angel OG is a fruity Kush cross that drapes the body in mellow effects from head to toe. This strain's OG Kush x Blackberry lineage gives the buds an aroma of earth, pine, and sweetness while supplying the consumer with potent physical effects. The strong relaxing properties of Angel OG are ideal for patients suffering from chronic physical pain, insomnia, and stress."
     },
@@ -50,7 +50,7 @@ const strainData = [
       strain_name: "Anonymous OG",
       img: "https://images.hytiva.com/Anonymous-Og.jpg?mw420-mh420",
       rating: 3,
-      type: "indica",
+      type: "sativa",
       description:
         "The 3C Anonymous OG greets the nose with distinctive woodsy, citrus, diesel scent that indica connoisseurs all know and love. Anonymous OG is a 3C Farms select cut of 3C Kushishima. Its round dense buds are wrapped in deep green calyxes that drip with resin and glitter with trichomes. The flavor is deep, satisfying the most refined palate. This strain is incredibly relaxing and sedative, and should be consumed in the evening for best results. "
     },
@@ -70,7 +70,7 @@ const strainData = [
       img:
       "https://media.allbud.com/resized/800x600xfit-nonupscale/media/feature/flower/lemon-topaz-2114.jpg?t=b52bb292e792b88de1a03d6d1871e307c304986cdcd948c0aad0700a82a0701f",
       rating: 3,
-      type: "hybrid",
+      type: "sativa",
       description:
         "BOG Bubble is an indica-dominant hybrid bred by B.O.G. Seeds. These frosty, sticky buds offer a sweet, bubblegum aroma and deliver long-lasting, uplifting effects. Grows are successful indoor or outdoor, flowering between 45 and 50 days."
     },
@@ -79,7 +79,7 @@ const strainData = [
       strain_name: "Banana OG",
       img: "https://images.hytiva.com/Banana-Og.jpg?mw420-mh420",
       rating: 3,
-      type: "hybrid",
+      type: "indica",
       description:
         "Banana OG is an indica-dominant cross between OG Kush and Banana. With a smell and flavor of overripe bananas, this hybrid definitely earns its name. Banana OG has tested at over 25% THC and has a reputation as a “creeper,” leaving those who over-imbibe in a near comatose state before intense hunger and sleepiness sets in. Patients treating muscular pain, loss of appetite, and insomnia may benefit from Banana OG."
     },
