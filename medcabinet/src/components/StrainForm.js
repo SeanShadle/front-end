@@ -28,6 +28,7 @@ export default function StrainForm(){
             <input type="text" placeholder="Enter the desired effect" ref={register} />
             <input type="text" placeholder="Enter the desired flavor" ref={register} />
             <input type="text" placeholder="Description" ref={register}/>
+            <input type="submit" value="submit" />
         </form>
     )
 }
