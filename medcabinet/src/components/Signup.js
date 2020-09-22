@@ -1,6 +1,7 @@
 import React from 'react'
 import {useForm} from "react-hook-form"
 import styled, {keyframes} from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export default function Signup(){
     const {register, handleSubmit, errors} = useForm();
@@ -31,7 +32,10 @@ export default function Signup(){
             />
             <StyledP>We respect your privacy. Names and emails are not displayed publically. By creating your Med Cabinet account, you agree to the terms of use and privacy policy.</StyledP>
         {errors.password && <p>{errors.password.message}</p>}
-        <StyledSubmit type="submit" value="Sign up"/>
+            <StyledSubmit type="submit" value="Sign up"/>
+            <LinkDiv>
+                <Link to ='/Login'>Already have an account? Login here!</Link>
+            </LinkDiv>
         </StyledForm>
         </FormDiv>
     )
@@ -73,7 +77,9 @@ const StyledSubmit = styled.input`
     text-align:center;
     border-radius: 5px;
     margin-left: 5vw
-
+`
+const LinkDiv = styled.div`
+    margin: 1rem 0 0 3.2rem;
 `
 
 
