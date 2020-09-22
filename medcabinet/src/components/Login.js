@@ -10,7 +10,7 @@ export default function Login(){
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" placeholder="Email" name="email" ref={register} />
+            <input type="text" placeholder="Username" name="username" ref={register} />
             <input 
             type="text" 
             placeholder="Password" 
