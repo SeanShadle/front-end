@@ -6,6 +6,7 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import StrainList from './components/StrainList'
 import SavedList from './components/SavedList'
+import StrainForm from './components/StrainForm'
 
 export default function App(props) {
   return (
@@ -17,6 +18,7 @@ export default function App(props) {
           <Link to='/Login'>Login</Link>
           <Link to='/StrainList'>Strain List</Link>
           <Link to='/SavedList'>Saved List</Link>
+          <Link to='/StrainForm'>Strain Form</Link>
         </div>
       </nav>
       <Switch>
@@ -31,6 +33,9 @@ export default function App(props) {
         </Route>
         <Route path='/SavedList'>
           <SavedList />
+        </Route>
+        <Route path='/StrainForm'>
+          <StrainForm />
         </Route>
         <Route path='/'>
           <Home />
