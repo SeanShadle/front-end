@@ -13,6 +13,7 @@ export default function Signup(){
         <FormDiv>
         <StyledForm onSubmit={handleSubmit(onSubmit)}>
             <Styledh2>Med Cabinet</Styledh2>
+            <h3><b>Signup</b></h3>
             <b>First Name:</b>
             <StyledInput type="text" placeholder="First Name" name="first-name" ref={register({required: "Password required"})} />
             <b>Last Name:</b>
@@ -36,16 +37,6 @@ export default function Signup(){
     )
 }
 
-const kf = keyframes`
-  50% {
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-`
-
 const FormDiv = styled.div`
     display: flex;
     background-color: #F7F7F7;
@@ -61,6 +52,7 @@ const StyledForm = styled.form`
 
 const Styledh2 = styled.h2`
     text-align:center;
+    font-size: 2rem;
 `
 
 const StyledInput = styled.input` 
@@ -83,6 +75,5 @@ const StyledSubmit = styled.input`
     margin-left: 5vw
 
 `
-
 
 
