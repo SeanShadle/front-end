@@ -17,6 +17,7 @@ export default function Login(){
             name="password" 
             ref={register({required: "Password required", minLength: 8})} 
             />
+            <input type="submit" value="Login" />
         </form>
     )
 }

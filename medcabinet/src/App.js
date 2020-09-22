@@ -10,6 +10,8 @@ import Strain from './components/Strain'
 import SavedList from './components/SavedList'
 import PrivateRoute from './components/PrivateRoute'
 
+import StrainForm from './components/StrainForm'
+
 
 import './App.css';
 
@@ -24,6 +26,7 @@ export default function App() {
           <Link to='/Login'>Login</Link>
           <Link to='/StrainList'>Strain List</Link>
           <Link to='/SavedList'>Saved List</Link>
+          <Link to='/StrainForm'>Strain Form</Link>
         </div>
       </nav>
       <Switch>
@@ -42,6 +45,9 @@ export default function App() {
 
         <Route path='/SavedList'>
           <SavedList />  {/* Once API is implemented -> <PrivateRoute component={SavedList}/>  */}
+        </Route>
+        <Route path='/StrainForm'>
+          <StrainForm />
         </Route>
         <Route path='/'>
           <Home />
