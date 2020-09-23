@@ -1,13 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
+
+// create a new "instance" of axios that will have
+// all our configs on it, and we will be able to use
+// it in place of axios throughout our app
 
 export const axiosWithAuth = () => {
-  // get the token from localstorage
-  const token = window.localStorage.getItem('token');
-  // create a new "instance" of axios with the config object built into it
+  const token = localStorage.getItem("token");
   return axios.create({
+    baseURL: "https://med-cabinet-2020.herokuapp.com",
     headers: {
-      authorization: token
-    },
-    baseURL: ''
+      Authorization: token,
+    }
   });
 };
