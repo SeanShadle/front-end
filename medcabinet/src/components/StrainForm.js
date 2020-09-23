@@ -50,6 +50,7 @@ const FormDiv = styled.div`
     margin: 5vh 35vw;
     padding: 3vh 0 5vh 5vw;
     text-align: left;
+    font-family: 'Maven Pro', sans-serif;
 `
 const StyledForm = styled.form`
     display:flex;
