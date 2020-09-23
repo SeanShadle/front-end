@@ -38,7 +38,7 @@ export default function Signup(){
             <b>Email:</b>
             <StyledInput type="text" placeholder="Example@example.com" name="email" ref={register({required: "Email required"})} />
             <b>Username:</b>
-            <StyledInput type="text" placeholder="Create your username" name="username" ref={register({required: "Username required", minLength: 4})} />
+            <StyledInput type="text" placeholder="Username" name="username" ref={register({required: "Username required", minLength: 4})} />
             <b>Password:</b>
             <StyledInput
             type="password"
@@ -76,7 +76,7 @@ const Styledh2 = styled.h2`
 `
 
 const StyledInput = styled.input` 
-    padding: 1rem 12rem 1rem .5rem; 
+    padding: 1vh 10vw 1vh .5vw; 
     margin-bottom: 1vh;
     border-radius: 5px;
 `
@@ -89,13 +89,13 @@ const StyledSubmit = styled.input`
     width: 10vw;
     color: white;
     background-color: #044A53;
-    padding: 1rem 0rem;
+    padding: 1vh 0vw;
     text-align:center;
     border-radius: 5px;
-    margin-left: 5vw
+    margin-left: 5vw;
 `
 const LinkDiv = styled.div`
-    margin: 1rem 0 0 3.2rem;
+    margin: 1vh 0 0 3.2vw;
 `
 
 
