@@ -29,7 +29,7 @@ export default function Login(props){
             <Styledh2>Med Cabinet</Styledh2>
             <h3><b>Login</b></h3>
             <b>Username:</b>
-            <StyledInput type="text" placeholder="Username" name="username" ref={register} />
+            <StyledInput type="text" placeholder="Username" name="username" ref={register({required: "Username required"})} />
             <b>Password:</b>
             <StyledInput 
             type="password" 
