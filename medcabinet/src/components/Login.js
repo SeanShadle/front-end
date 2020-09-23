@@ -1,13 +1,26 @@
 import React from 'react'
 import {useForm} from "react-hook-form"
+import {useHistory} from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { loginUser } from "../actions";
 import styled, {keyframes} from 'styled-components'
 import {Link} from 'react-router-dom'
 
-export default function Login(){
-    const {register, handleSubmit, errors} = useForm();
+export default function Login(props){
+    const {push} = useHistory()
+    const dispatch = useDispatch();
+    const {register, handleSubmit, setValue, errors} = useForm();
 
     const onSubmit = data => {
         console.log(data);
+        const user = {
+            username: data.username,
+            password: data.password
+        }
+        dispatch(loginUser(user, push));
+        // history.push('/StrainList')
+        setValue('username', '')
+        setValue('password', '')
     }
 
     return (
@@ -24,7 +37,8 @@ export default function Login(){
             name="password" 
             ref={register({required: "Password required", minLength: 8})} 
             />
-            <StyledSubmit type="submit" value="Login" />
+            <button>submit</button>
+            {/* <StyledSubmit type="submit" value="Login" /> */}
             <LinkDiv>
             <Link to ='/Signup'>Don't have an account? Sign up here!</Link>
             </LinkDiv>

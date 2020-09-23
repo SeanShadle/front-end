@@ -41,16 +41,16 @@ export default function App() {
         <Route path='/Login'>
           <Login />
         </Route>
-        <Route path='/StrainList'>
-          <StrainList />  {/* Once API is implemented -> <PrivateRoute component={StrainList}/>  */}   
-        </Route>
+       
+      <PrivateRoute exact path="/StrainList" component={StrainList}/>    
+        
         <Route path="/StrainList/:id">
           <Strain  />
         </Route>
 
-        <Route path='/SavedList'>
-          <SavedList />  {/* Once API is implemented -> <PrivateRoute component={SavedList}/>  */}
-        </Route>
+       
+       <PrivateRoute exact path = '/SavedList' component={SavedList}/>  
+        
         <Route path='/StrainForm'>
           <StrainForm />
         </Route>

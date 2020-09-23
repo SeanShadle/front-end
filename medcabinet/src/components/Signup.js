@@ -1,13 +1,29 @@
 import React from 'react'
 import {useForm} from "react-hook-form"
+import { registerUser } from '../actions/'
+import {useHistory} from 'react-router-dom'
+import { useDispatch } from "react-redux";
 import styled, {keyframes} from 'styled-components'
 import {Link} from 'react-router-dom'
 
 export default function Signup(){
-    const {register, handleSubmit, errors} = useForm();
+    const { push } = useHistory()
+    const dispatch = useDispatch();
+    const {register, handleSubmit, errors, setValue} = useForm();
 
     const onSubmit = data => {
         console.log(data);
+        const newUser = {
+            username: data.username,
+            password: data.password
+        }
+        dispatch(registerUser(newUser, push));
+        // history.push('/login')
+        setValue('first-name', '')
+        setValue('last-name', '')
+        setValue('username', '')
+        setValue('password', '')
+        setValue('email', '')
     };
 
     return (
