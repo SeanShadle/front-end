@@ -41,3 +41,21 @@
     transform: rotate(360deg);
   }
 }
+
+.item-card {
+  width: 250px;
+  margin: 0 10px 32px;
+  cursor: pointer;
+}
+
+.items-list-wrapper {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-list-image {
+  width: 100%;
+  border: 1px solid lightgray;
+}

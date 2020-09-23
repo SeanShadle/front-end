@@ -71,7 +71,7 @@ const StyledHeader = styled.div`
     height: auto;
     font-size: 1.25rem;
     padding: 2.5rem 0;
-}
+
 `
 
 const StyledTitle = styled.h2`

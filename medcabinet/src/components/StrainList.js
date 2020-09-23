@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import strainData from '../mockData'
+import {useHistory} from 'react-router-dom'
 import { v4 as uuidv4 } from "uuid";
 
 const initialSearch = {
@@ -15,11 +16,11 @@ const StrainList = () => {
     const [filter, setFilter] = useState(initialFilter)
     const [data, setData] = useState(strainData.map((strain) => ({ ...strain, newid: uuidv4() })));
 
-    // let history = useHistory();
-    // function routeToItem(ev, item) {
-    //     ev.preventDefault();
-    //     history.push(`/StrainList/${item.id}`);
-    // }
+    let history = useHistory();
+    function routeToItem(ev, item) {
+        ev.preventDefault();
+        history.push(`/StrainList/${item.id}`);
+    }
 
     // const convert = straindata.map((strain) => ({ ...strain, newid: uuidv4() }));
     
@@ -57,11 +58,11 @@ const StrainList = () => {
                     <option value="sativa">Sativa</option>
                     <option value="hybrid">Hybrid</option>
                 </select>
-            <div>
+            <div className="items-list-wrapper">
                 {data
                 .filter((item)=>item.strain_name.toLowerCase().includes(makeLowerCase(search.search)))
                 .map((item)=>(
-                    <div key={item.id} item={item} >
+                    <div className ="item-card" key={item.id} item={item} onClick={(ev) => routeToItem(ev, item)}>
                         <img className="item-list-image" src={item.img} alt={item.strain_name} />
                         <h4>{item.strain_name}</h4>
                         <h4>{item.type}</h4>
