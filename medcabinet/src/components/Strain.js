@@ -23,7 +23,7 @@ const Strain = (props) => {
             <StrainP>Rating : {item.rating}/5</StrainP>
             <StrainP>{item.description}</StrainP>
            
-            <StrainBtn>Add to List</StrainBtn>
+            <StrainBtn onClick = {()=> props.addIt(item)}>Add to List</StrainBtn>
         </StrainDiv>
     )
 

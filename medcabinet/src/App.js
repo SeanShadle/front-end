@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {Route, Link, Switch} from 'react-router-dom'
 
@@ -12,11 +12,19 @@ import PrivateRoute from './components/PrivateRoute'
 import StrainForm from './components/StrainForm'
 import styled from 'styled-components'
 
+import strainData from './mockData'
+
 
 import './App.css';
 
 
 export default function App() {
+  const [items, setItems] = useState(strainData)
+  const [savedLists, setSavedLists] = useState([]);
+
+  const addToSaveList = (item) => {
+    setSavedLists([...savedLists, item]);
+  };
   return (
     <div className="App">
 
@@ -28,7 +36,7 @@ export default function App() {
               <StyledLink to='/Signup'>Signup</StyledLink>
               <StyledLink to='/Login'>Login</StyledLink>
               <StyledLink to='/StrainList'>Strain List</StyledLink>
-              <StyledLink to='/SavedList'>Saved List</StyledLink>
+              <StyledLink to='/SavedList'>Saved List{<span>{savedLists.length > 0 ? savedLists.length : ""}</span>}</StyledLink>
               <StyledLink to='/StrainForm'>Strain Form</StyledLink>
         </nav>
       </StyledHeader>
@@ -42,14 +50,16 @@ export default function App() {
           <Login />
         </Route>
        
-      <PrivateRoute exact path="/StrainList" component={StrainList}/>    
+      <PrivateRoute exact path="/StrainList" component={StrainList} />    
         
         <Route path="/StrainList/:id">
-          <Strain  />
+          <Strain items={items} addIt={addToSaveList}  />
         </Route>
 
        
-       <PrivateRoute exact path = '/SavedList' component={SavedList}/>  
+       <PrivateRoute exact path = '/SavedList'>
+         <SavedList list={savedLists} />  
+         </PrivateRoute> 
         
         <Route path='/StrainForm'>
           <StrainForm />
