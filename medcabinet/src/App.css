@@ -59,3 +59,11 @@
   width: 100%;
   border: 1px solid lightgray;
 }
+.item-card img {
+  max-width: 360px;
+  max-height: 360px;
+}
+.item-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
