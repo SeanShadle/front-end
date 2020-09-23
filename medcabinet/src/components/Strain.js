@@ -15,7 +15,7 @@ const Strain = (props) => {
     
     
     return (
-        <div className="strain">
+        <div className="item-wrapper">
             <img className="item-list-image" src={item.img} alt={item.strain_name} />
             <h4>{item.strain_name}</h4>
             <h4>{item.type}</h4> 
