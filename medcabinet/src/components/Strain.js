@@ -5,11 +5,11 @@ import strainData from '../mockData'
 const Strain = (props) => {
     const history = useHistory();
     const {id} = useParams();
-    const item = props.items.find(
+    const item = strainData.find(
         (thing) => `${thing.id}` === id
       );
     
-      if (!props.items.length || !item) {
+      if (!strainData.length || !item) {
         return <h2>Loading item data...</h2>;
       }
     
