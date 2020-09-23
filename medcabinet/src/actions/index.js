@@ -17,11 +17,12 @@ export const registerUser = (user, push) => (dispatch) => {
     axiosWithAuth()
       .post("/api/register", user)
       .then((res) => {
+        console.log(res)
         dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data.data });
         // localStorage.setItem("token", res.data.token);
-        localStorage.setItem("firstname", res.data.data.firstname);
-        localStorage.setItem("lastname", res.data.data.lastname);
-        localStorage.setItem("email", res.data.data.email);
+        // localStorage.setItem("firstname", res.data.data.firstname);
+        // localStorage.setItem("lastname", res.data.data.lastname);
+        // localStorage.setItem("email", res.data.data.email);
         localStorage.setItem("username", res.data.data.username);
         localStorage.setItem("password", res.data.data.password);
         push("/Login");
@@ -34,7 +35,7 @@ export const registerUser = (user, push) => (dispatch) => {
 
 
 
-  export const loginUser = (credentials, props) => (dispatch) => {
+  export const loginUser = (credentials, push) => (dispatch) => {
     dispatch({ type: LOGIN_USER_START });
     console.log(credentials);
     axiosWithAuth()
@@ -43,9 +44,7 @@ export const registerUser = (user, push) => (dispatch) => {
         dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data });
         console.log("Login", res.data);
         localStorage.setItem("token", res.data.token);
-        localStorage.setItem("username", res.data.data.username);
-        localStorage.setItem("password", res.data.data.password);
-        props.history.push("/StrainList");
+        push("/StrainList");
       })
       .catch((err) => {
         dispatch({ type: LOGIN_USER_FAILURE });
