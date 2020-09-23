@@ -68,8 +68,8 @@ const StrainList = () => {
                 .map((item)=>(
                     <ItemCard className ="item-card" key={item.id} item={item} onClick={(ev) => routeToItem(ev, item)}>
                         <ListImg className="item-list-image" src={item.img} alt={item.strain_name} />
-                        <h4>{item.strain_name}</h4>
-                        <h4>{item.type}</h4>
+                        <StrainType>{item.strain_name}</StrainType>
+                        <StrainType>{item.type}</StrainType>
                         
                     </ItemCard>
                     
@@ -89,6 +89,7 @@ const StrainMain = styled.div`
     margin-left: 37vw;
     padding-top: 3vh;
     border-radius: 10px;
+    font-family: 'Maven Pro', sans-serif;
 `
 
 const SearchBoxDiv = styled.div`
@@ -118,5 +119,8 @@ const ListImg = styled.img`
     border-radius: 10px;
 `
 
+const StrainType = styled.h4`
+    text-transform: capitalize;
+`
 
 export default StrainList;
