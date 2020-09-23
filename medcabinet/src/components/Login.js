@@ -37,7 +37,7 @@ export default function Login(props){
             name="password" 
             ref={register({required: "Password required", minLength: 8})} 
             />
-            <button>submit</button>
+            <StyledButton>Login</StyledButton>
             {/* <StyledSubmit type="submit" value="Login" /> */}
             <LinkDiv>
             <Link to ='/Signup'>Don't have an account? Sign up here!</Link>
@@ -76,7 +76,7 @@ const LinkDiv = styled.div`
     margin: 1rem 0 0 3.2rem;
 `
 
-const StyledSubmit = styled.input`
+const StyledButton = styled.button`
     width: 10vw;
     color: white;
     background-color: #044A53;
