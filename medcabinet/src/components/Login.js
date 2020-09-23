@@ -1,7 +1,7 @@
 import React from 'react'
 import {useForm} from "react-hook-form"
 import styled, {keyframes} from 'styled-components'
-import {Route, Link, Switch} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 export default function Login(){
     const {register, handleSubmit, errors} = useForm();
