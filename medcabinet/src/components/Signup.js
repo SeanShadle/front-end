@@ -32,13 +32,13 @@ export default function Signup(){
             <Styledh2>Med Cabinet</Styledh2>
             <h3><b>Signup</b></h3>
             <b>First Name:</b>
-            <StyledInput type="text" placeholder="First Name" name="first-name" ref={register({required: "Password required"})} />
+            <StyledInput type="text" placeholder="First Name" name="first-name" ref={register({required: "First name required"})} />
             <b>Last Name:</b>
-            <StyledInput type="text" placeholder="Last Name" name="last-name" ref={register({required: "Password required"})} />
+            <StyledInput type="text" placeholder="Last Name" name="last-name" ref={register({required: "Last name required"})} />
             <b>Email:</b>
-            <StyledInput type="text" placeholder="Example@example.com" name="email" ref={register({required: "Password required", minLength: 8})} />
+            <StyledInput type="text" placeholder="Example@example.com" name="email" ref={register({required: "Email required"})} />
             <b>Username:</b>
-            <StyledInput type="text" placeholder="Create your username" name="username" ref={register({required: "Password required", minLength: 8})} />
+            <StyledInput type="text" placeholder="Create your username" name="username" ref={register({required: "Username required", minLength: 4})} />
             <b>Password:</b>
             <StyledInput
             type="password"
