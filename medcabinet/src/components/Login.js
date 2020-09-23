@@ -1,6 +1,7 @@
 import React from 'react'
 import {useForm} from "react-hook-form"
 import styled, {keyframes} from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export default function Login(){
     const {register, handleSubmit, errors} = useForm();
@@ -24,7 +25,11 @@ export default function Login(){
             ref={register({required: "Password required", minLength: 8})} 
             />
             <StyledSubmit type="submit" value="Login" />
+            <LinkDiv>
+            <Link to ='/Signup'>Don't have an account? Sign up here!</Link>
+            </LinkDiv>
         </StyledForm>
+        
         </FormDiv>
     )
 }
@@ -51,6 +56,10 @@ const StyledInput = styled.input`
     padding: 1rem 12rem 1rem .5rem; 
     margin-bottom: 1vh;
     border-radius: 5px;
+`
+
+const LinkDiv = styled.div`
+    margin: 1rem 0 0 3.2rem;
 `
 
 const StyledSubmit = styled.input`
