@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
-import strainData from '../mockData'
+
+import {connect} from 'react-redux'
 import {useHistory} from 'react-router-dom'
-import { v4 as uuidv4 } from "uuid";
+import strains from '../theData'
 import styled, {keyframes} from 'styled-components'
 
 const initialSearch = {
@@ -15,15 +16,16 @@ const initialFilter= {
 const StrainList = () => {
     const [search, setSearch] = useState(initialSearch);
     const [filter, setFilter] = useState(initialFilter)
-    const [data, setData] = useState(strainData.map((strain) => ({ ...strain, newid: uuidv4() })));
+    const [data, setData] = useState(strains);
+    const [image, setImage] = useState('')
 
     let history = useHistory();
     function routeToItem(ev, item) {
         ev.preventDefault();
-        history.push(`/StrainList/${item.id}`);
+        history.push(`/StrainList/${item.strain_name}`);
     }
 
-    // const convert = straindata.map((strain) => ({ ...strain, newid: uuidv4() }));
+    // const convert = strains.map((strain) => ({ ...strain, neuser_id: uuser_idv4() }));
     
     const onChange = (e) => {
         setSearch({ [e.target.name]: e.target.value });
@@ -32,16 +34,30 @@ const StrainList = () => {
     const onSelectChange = (e) => {
         setFilter({ [e.target.name]: e.target.value })
         if (e.target.value == "all" ) {
-            setData(strainData)
+            setData(strains)
         } else {
             filterIt(e.target.value)
         }
         
     }
     const filterIt = (value) => {
-        const filteredData = strainData.map((item) => {return item})
+        const filteredData = strains.map((item) => {return item})
         const filt =filteredData.filter((item)=> item.type === value)
         setData(filt);
+    }
+    const imageIt = (type) => {
+        if (type == 'sativa'){
+            return 'https://medcarefarms.com/wp-content/uploads/2020/07/MCF-Icons_Sativa-e1595555346200-uai-258x237.png'
+        }
+        if (type == 'indica'){
+            return 'https://medcarefarms.com/wp-content/uploads/2020/07/MCF-Icons_Indica-e1595555429573-uai-258x216.png' 
+        }
+        if( type == 'hybrid') {
+            return 'https://medcarefarms.com/wp-content/uploads/2020/07/MCF-Icons_Hybrid-e1595555500547-uai-258x216.png'
+        }
+        else{
+            return 'error'
+        }
     }
    
 
@@ -54,9 +70,9 @@ const StrainList = () => {
         <>
         <StrainMain>
             <SearchBoxDiv>
-                <StrainInput type="text" name="search" placeholder="Strain Name" value={search.search} onChange={onChange} />
+                <StrainInput type="text" name="search" placeholder="Strain" value={search.search} onChange={onChange} />
                 <StrainSelect name="type" onChange={onSelectChange} >
-                        <option value='all'>All Items</option>
+                        <option value='all'>All</option>
                         <option value="indica">Indica</option>
                         <option value="sativa">Sativa</option>
                         <option value="hybrid">Hybrid</option>
@@ -64,13 +80,13 @@ const StrainList = () => {
             </SearchBoxDiv>
             <div className="items-list-wrapper">
                 {data
-                .filter((item)=>item.strain_name.toLowerCase().includes(makeLowerCase(search.search)))
+                .filter((item)=>makeLowerCase(item.strain_name).includes(makeLowerCase(search.search)))
                 .map((item)=>(
-                    <ItemCard className ="item-card" key={item.id} item={item} onClick={(ev) => routeToItem(ev, item)}>
-                        <ListImg className="item-list-image" src={item.img} alt={item.strain_name} />
+                    <ItemCard className ="item-card" key={item.strain_name} item={item} onClick={(ev) => routeToItem(ev, item)}>
+                        <ListImg className="item-list-image" src={imageIt(item.type)} alt={item.strain_name} />
                         <StrainType>{item.strain_name}</StrainType>
                         <StrainType>{item.type}</StrainType>
-                        
+                        <StrainType>{item.flavors}</StrainType>
                     </ItemCard>
                     
                 ))}

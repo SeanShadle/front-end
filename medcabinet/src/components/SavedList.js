@@ -1,10 +1,28 @@
 import React, {useState,} from 'react';
 import {axiosWithAuth} from '../utils/axiosWithAuth'
-import { v4 as uuidv4 } from "uuid";
+import {useHistory} from 'react-router-dom'
 import styled, {keyframes} from 'styled-components'
 
 const SavedList = ({list}) => {
-
+  let history = useHistory();
+  function routeToItem(ev, item) {
+      ev.preventDefault();
+      history.push(`/StrainList/${item.strain_name}`);
+  }
+  const imageIt = (type) => {
+    if (type == 'sativa'){
+        return 'https://medcarefarms.com/wp-content/uploads/2020/07/MCF-Icons_Sativa-e1595555346200-uai-258x237.png'
+    }
+    if (type == 'indica'){
+        return 'https://medcarefarms.com/wp-content/uploads/2020/07/MCF-Icons_Indica-e1595555429573-uai-258x216.png' 
+    }
+    if( type == 'hybrid') {
+        return 'https://medcarefarms.com/wp-content/uploads/2020/07/MCF-Icons_Hybrid-e1595555500547-uai-258x216.png'
+    }
+    else{
+        return 'error'
+    }
+}
       return (
        <StrainMain className="saved">
          {list.map((item) => (
@@ -12,7 +30,8 @@ const SavedList = ({list}) => {
           <div className="cart-item-card" key={item.id}>
             <ListImg
               className="cart-item-list-image"
-              src={item.img}
+              onClick={(ev) => routeToItem(ev, item)}
+              src={imageIt(item.type)}
               alt={item.strain_name}
             />
           </div>
@@ -22,6 +41,7 @@ const SavedList = ({list}) => {
             <p>Rating :{item.rating}</p>
           </div>
           <StyledRemove>Remove from list</StyledRemove>
+          <button> Edit</button>
         </ItemCard>
       ))}
        </StrainMain>
