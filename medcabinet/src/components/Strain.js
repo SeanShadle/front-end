@@ -33,12 +33,17 @@ const Strain = (props) => {
         }
     }
 
-    const handleSubmit = (e, item) => {
-      e.preventDefault();
+    const handleSubmit = (item) => {
       axiosWithAuth()
         .post('/api/strain/add', item)
         .then(res => {
-          console.log(res.data)
+          console.log(res)
+        })
+        .catch(err => console.log(err));
+        axiosWithAuth()
+        .get('/api/strain/all')
+        .then(res => {
+          props.saveIt(res.data)
         })
         .catch(err => console.log(err));
     };
@@ -52,7 +57,7 @@ const Strain = (props) => {
             <StrainP>Rating : {item.rating}/5</StrainP>
             <StrainP>{item.description}</StrainP>
            
-            <StrainBtn onClick = {()=> props.addIt(item)}>Add to List</StrainBtn>
+            <StrainBtn onClick ={(e)=>{ e.preventDefault(); handleSubmit(item);}  }>Add to List</StrainBtn>
         </StrainDiv>
     )
 

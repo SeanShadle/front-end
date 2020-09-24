@@ -161,10 +161,10 @@ const theData = [ {
    description: 'A-10 has an earthy, hashy taste that provides a very heavy body stone. Frequently used to treat insomnia and chronic pain.'
   }]
 const mapped = [...theData]
-mapped.forEach((o) => o.Rating =  Math.round(o.Rating));
+mapped.forEach((o) => o.rating =  o.rating.toFixed(0));
 mapped.forEach((o, i) => o[0] = i + 1);
 const strains = mapped.map(item  => {
   return {user_id:item[0], strain_name:item.strain_name, type:item.type, rating:item.rating, effects:item.effects, flavors: item.flavors, description: item.description}
 })
   
-export default strains
+export default strains;

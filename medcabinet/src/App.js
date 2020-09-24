@@ -25,6 +25,7 @@ export default function App() {
   const addToSaveList = (item) => {
     setSavedLists([...savedLists, item]);
   };
+  
   return (
     <div className="App">
 
@@ -53,12 +54,12 @@ export default function App() {
       <PrivateRoute exact path="/StrainList" component={StrainList} />    
         
         <Route path="/StrainList/:strain_name">
-          <Strain items={items} addIt={addToSaveList}  />
+          <Strain items={items} addIt={addToSaveList} saveIt = {setSavedLists} />
         </Route>
 
        
        <PrivateRoute exact path = '/SavedList'>
-         <SavedList list={savedLists} />  
+         <SavedList list={savedLists} setList = {setSavedLists} />  
          </PrivateRoute> 
         
         <Route path='/StrainForm'>
