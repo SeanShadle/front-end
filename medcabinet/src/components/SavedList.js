@@ -41,7 +41,7 @@ const SavedList = ({list}) => {
             <p>Rating :{item.rating}</p>
           </div>
           <StyledRemove>Remove from list</StyledRemove>
-          <button> Edit</button>
+          <StyledEdit> Edit</StyledEdit>
         </ItemCard>
       ))}
        </StrainMain>
@@ -85,6 +85,16 @@ const StyledRemove = styled.button`
     width: 10vw;
     color: white;
     background-color: red;
+    padding: 1rem 0rem;
+    text-align:center;
+    border-radius: 5px;
+    margin-bottom: 3vh;
+`
+
+const StyledEdit = styled.button`
+    width: 10vw;
+    color: white;
+    background-color: lightseagreen;
     padding: 1rem 0rem;
     text-align:center;
     border-radius: 5px;

@@ -3,6 +3,7 @@ import { Route, NavLink, useHistory, useParams } from "react-router-dom";
 import {connect} from 'react-redux'
 import strains from '../theData'
 import styled, {keyframes} from 'styled-components'
+import {axiosWithAuth} from "../utils/axiosWithAuth"
 
 const Strain = (props) => {
     const history = useHistory();
@@ -31,6 +32,16 @@ const Strain = (props) => {
             return 'error'
         }
     }
+
+    const handleSubmit = (e, item) => {
+      e.preventDefault();
+      axiosWithAuth()
+        .post('/api/strain/add', item)
+        .then(res => {
+          console.log(res.data)
+        })
+        .catch(err => console.log(err));
+    };
     
     
     return (
