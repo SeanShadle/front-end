@@ -1,23 +1,41 @@
 import React from 'react';
 import { Route, NavLink, useHistory, useParams } from "react-router-dom";
-import strainData from '../mockData'
+import {connect} from 'react-redux'
+import strains from '../theData'
 import styled, {keyframes} from 'styled-components'
 
 const Strain = (props) => {
     const history = useHistory();
-    const {id} = useParams();
-    const item = strainData.find(
-        (thing) => `${thing.id}` === id
+    const newstrains = strains.map(item  => {
+      return {user_id:props.id, strain_name:item.strain_name, type:item.type, rating:item.rating, effects:item.effects, flavors: item.flavors, description: item.description}
+    })
+    const {strain_name} = useParams();
+    const item = newstrains.find(
+        (thing) => `${thing.strain_name}` === strain_name
       );
     
-      if (!strainData.length || !item) {
+      if (!strains.length || !item) {
         return <h2>Loading item data...</h2>;
       }
+      const imageIt = (type) => {
+        if (type == 'sativa'){
+            return 'https://medcarefarms.com/wp-content/uploads/2020/07/MCF-Icons_Sativa-e1595555346200-uai-258x237.png'
+        }
+        if (type == 'indica'){
+            return 'https://medcarefarms.com/wp-content/uploads/2020/07/MCF-Icons_Indica-e1595555429573-uai-258x216.png' 
+        }
+        if( type == 'hybrid') {
+            return 'https://medcarefarms.com/wp-content/uploads/2020/07/MCF-Icons_Hybrid-e1595555500547-uai-258x216.png'
+        }
+        else{
+            return 'error'
+        }
+    }
     
     
     return (
         <StrainDiv className="item-wrapper">
-            <StrainImg className="item-list-image" src={item.img} alt={item.strain_name} />
+            <StrainImg className="item-list-image" src={imageIt(item.type)} alt={item.strain_name} />
             <StrainName>{item.strain_name}</StrainName>
             <StrainType>{item.type}</StrainType> 
             <StrainP>Rating : {item.rating}/5</StrainP>
@@ -28,6 +46,13 @@ const Strain = (props) => {
     )
 
 }
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    id: state.id
+  };
+}
+export default connect(mapStateToProps, {}) (Strain);
 
 const StrainDiv = styled.div`
   font-family: 'Maven Pro', sans-serif;
@@ -67,4 +92,3 @@ const StrainBtn = styled.button`
     margin-left: .75vw;
 `
 
-export default Strain

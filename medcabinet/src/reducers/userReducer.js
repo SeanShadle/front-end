@@ -17,6 +17,7 @@ const initialState = {
     isRegistering: false,
     isLoggingIn: false,
     errors:'',
+    id: ''
 }
 
 export const userReducer = (state = initialState, action) => {
@@ -27,6 +28,7 @@ export const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoggingIn: false,
+                id: action.payload
                 
             };
         case LOGIN_USER_FAILURE:

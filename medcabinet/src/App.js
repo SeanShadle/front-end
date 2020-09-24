@@ -36,7 +36,7 @@ export default function App() {
               <StyledLink to='/Signup'>Signup</StyledLink>
               <StyledLink to='/Login'>Login</StyledLink>
               <StyledLink to='/StrainList'>Strain List</StyledLink>
-              <StyledLink to='/SavedList'>Saved List{<span>{savedLists.length > 0 ? savedLists.length : ""}</span>}</StyledLink>
+              <StyledLink to='/SavedList'>Saved List {<span>{savedLists.length > 0 ? `(${savedLists.length})` : ""}</span>}</StyledLink>
               <StyledLink to='/StrainForm'>Strain Form</StyledLink>
         </nav>
       </StyledHeader>
@@ -52,7 +52,7 @@ export default function App() {
        
       <PrivateRoute exact path="/StrainList" component={StrainList} />    
         
-        <Route path="/StrainList/:id">
+        <Route path="/StrainList/:strain_name">
           <Strain items={items} addIt={addToSaveList}  />
         </Route>
 

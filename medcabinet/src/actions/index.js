@@ -41,7 +41,7 @@ export const registerUser = (user, push) => (dispatch) => {
     axiosWithAuth()
       .post("/api/login", credentials)
       .then((res) => {
-        dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data });
+        dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data.id });
         console.log("Login", res.data);
         localStorage.setItem("token", res.data.token);
         push("/StrainList");
