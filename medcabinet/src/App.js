@@ -38,13 +38,12 @@ export default function App() {
               <StyledLink to='/Login'>Login</StyledLink>
               <StyledLink to='/StrainList'>Strain List</StyledLink>
               <StyledLink to='/SavedList'>Saved List {<span>{savedLists.length > 0 ? `(${savedLists.length})` : ""}</span>}</StyledLink>
-              <StyledLink to='/StrainForm'>Strain Form</StyledLink>
         </nav>
       </StyledHeader>
 
 
       <Switch>
-        <Route path='/Signup'>
+        <Route path='/'>
           <Signup />
         </Route>
         <Route path='/Login'>
