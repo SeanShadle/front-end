@@ -64,12 +64,12 @@ const StrainForm = ({setList, list}) => {
             <h2>Update A Strain</h2>
             <div className='form'>
                 <form onSubmit={handleSubmit}>
-                    <input type= 'text' name='strain_name' value={values.strain_name} onChange={handleChanges} placeholder='Title'  />
-                    <input type='text' name ='type' value={values.type} onChange={handleChanges} placeholder='Director'  />
-                    <input type='number' name ='rating' value={values.rating} onChange={handleChanges} placeholder='MetaScore'  />
-                    <input type='stars' name ='effects' value={values.effects} onChange={handleChanges} placeholder=''  />
-                    <input type='stars' name ='flavors' value={values.flavors} onChange={handleChanges} placeholder=''  />
-                    <input type='stars' name ='description' value={values.description} onChange={handleChanges} placeholder=''  />
+                    <input type= 'text' name='strain_name' value={values.strain_name} onChange={handleChanges} placeholder='Strain Name'  />
+                    <select name="type" onChange={handleChanges}><option value="indica">Indica</option> <option value="sativa">Sativa</option><option value="hybrid">Hybrid</option></select> 
+                    <input type='number' name ='rating' value={values.rating} onChange={handleChanges} placeholder='Rating'  />
+                    <input type='text' name ='effects' value={values.effects} onChange={handleChanges} placeholder='Effects'  />
+                    <input type='text' name ='flavors' value={values.flavors} onChange={handleChanges} placeholder='Flavors'  />
+                    <input type='text' name ='description' value={values.description} onChange={handleChanges} placeholder='Description'  />
                     <button>UPDATE</button> 
                 </form>
                 
