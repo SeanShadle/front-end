@@ -1,9 +1,9 @@
-import React, {useState,} from 'react';
+import React, {useState, useEffect} from 'react';
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 import {useHistory} from 'react-router-dom'
 import styled, {keyframes} from 'styled-components'
 
-const SavedList = ({list}) => {
+const SavedList = ({list, setList}) => {
   let history = useHistory();
   function routeToItem(ev, item) {
       ev.preventDefault();
@@ -23,12 +23,31 @@ const SavedList = ({list}) => {
         return 'error'
     }
 }
+useEffect(() => {
+  axiosWithAuth()
+  .get('/api/strain/all')
+  .then(res => {
+    setList(res.data)
+  })
+  .catch(err => console.log(err));
+}, [])
+
+const deleteIt = (item) =>{ 
+axiosWithAuth()
+.delete(`/api/strain/${item.id}`)
+.then(res => { 
+setList(list.filter(strain => strain.id !== res.data.id));
+})
+.catch(err => console.log(err));
+
+}
       return (
        <StrainMain className="saved">
          {list.map((item) => (
-        <ItemCard className="cart-items-list-wrapper">
-          <div className="cart-item-card" key={item.id}>
+        <ItemCard className="cart-items-list-wrapper" key={item.id} item={item}>
+          <div className="cart-item-card" >
             <ListImg
+            
               className="cart-item-list-image"
               onClick={(ev) => routeToItem(ev, item)}
               src={imageIt(item.type)}
