@@ -31,16 +31,15 @@ const StrainForm = ({setList, list}) => {
     //     setValues({...values,[event.target.name] : event.target.value });
     //   };
     const handleChanges = (e) => {
-        e.persist();
-        let value = e.target.value;
-        if (e.target.name === 'effects' || 'flavors') {
-          value = value.split(',');
-        }
+        // let value = e.target.value;
+        // if (e.target.name === 'effects' || 'flavors') {
+        //   value = value.split(',');
+        // }
         
     
         setValues({
           ...values,
-          [e.target.name]: value,
+          [e.target.name]: e.target.value,
         });
       };
     const handleSubmit = (e) => {
