@@ -58,8 +58,8 @@ export default function App() {
          <SavedList list={savedLists} setList = {setSavedLists} />  
          </PrivateRoute> 
         
-        <Route path='/StrainForm'>
-          <StrainForm />
+         <Route path='/StrainForm/:id'>
+          <StrainForm list={savedLists} setList = {setSavedLists} />
         </Route>
         {/* <Route path='/'>
           <Home />

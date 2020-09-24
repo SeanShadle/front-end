@@ -5,6 +5,9 @@ import styled, {keyframes} from 'styled-components'
 
 const SavedList = ({list, setList}) => {
   let history = useHistory();
+  function handleClick(item) {
+    history.push(`/StrainForm/${item.id}`);
+  }
   function routeToItem(ev, item) {
       ev.preventDefault();
       history.push(`/StrainList/${item.strain_name}`);
@@ -59,8 +62,8 @@ setList(list.filter(strain => strain.id !== res.data.id));
             <StrainType>{item.type}</StrainType>
             <p>Rating :{item.rating}</p>
           </div>
-          <StyledRemove>Remove from list</StyledRemove>
-          <StyledEdit> Edit</StyledEdit>
+          <StyledRemove onClick={(e)=>{e.stopPropagation(); deleteIt(item);}}>Remove from list</StyledRemove>
+          <StyledEdit onClick={(e)=>{e.stopPropagation(); handleClick(item);}} > Edit</StyledEdit>
         </ItemCard>
       ))}
        </StrainMain>
