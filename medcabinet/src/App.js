@@ -43,9 +43,6 @@ export default function App() {
 
 
       <Switch>
-        <Route path='/'>
-          <Signup />
-        </Route>
         <Route path='/Login'>
           <Login />
         </Route>
@@ -67,6 +64,9 @@ export default function App() {
         {/* <Route path='/'>
           <Home />
         </Route> */}
+        <Route path='/'>
+          <Signup />
+        </Route>
       </Switch>
     </div>
   );
