@@ -29,14 +29,11 @@ export default function Login(props){
             <Styledh2>Med Cabinet</Styledh2>
             <h3><b>Login</b></h3>
             <b>Username:</b>
-            <StyledInput type="text" placeholder="Username" name="username" ref={register({required: "Username required"})} />
+            <StyledInput type="text" placeholder="Username" name="username" ref={register({required: "Username required", minlength: {value: 4, message:"Please enter a valid username"}})} />
             <b>Password:</b>
-            <StyledInput 
-            type="password" 
-            placeholder="Password" 
-            name="password" 
-            ref={register({required: "Password required", minLength: 8})} 
-            />
+            <StyledInput type="password" placeholder="Password" name="password" ref={register({required: "Password required", minLength: {value: 8, message: "Incorrect password"}})} />
+            {errors.username && <StyledRequired>{errors.username.message}</StyledRequired>}
+            {errors.password && <StyledRequired>{errors.password.message}</StyledRequired>}
             <StyledButton>Login</StyledButton>
             {/* <StyledSubmit type="submit" value="Login" /> */}
             <LinkDiv>
@@ -85,4 +82,7 @@ const StyledButton = styled.button`
     text-align:center;
     border-radius: 5px;
     margin-left: 5vw
+`
+const StyledRequired = styled.p`
+    color: red;
 `
